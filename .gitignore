@@ -1,0 +1,46 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+.env
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+
+# Archivos de configuración locales
+*.local
+*.log
+
+# Datasets (grandes)
+data/face-mask-data/images/
+data/face-mask-data/labels/
+!data/face-mask-data/.gitkeep
+
+# Resultados de entrenamiento (modelos, gráficas)
+# runs/
+# **/weights/best.pt
+# **/weights/last.pt
+**/args.yaml
+**/labels.cache
+
+# Archivos temporales generados
+# face_mask_dataset_abs.yaml
+# training/face_mask_dataset.yaml
+
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Sistema
+Thumbs.db
+.DS_Store
+
+.cache
