@@ -1,46 +1,68 @@
-# Entornos virtuales
-venv/
-.venv/
-env/
-.env
-
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.pytest_cache/
-.mypy_cache/
-
-# Archivos de configuración locales
-*.local
-*.log
-
-# Datasets (grandes)
+# El dataset son fotos de personas reales: no se publica.
 data/face-mask-data/images/
 data/face-mask-data/labels/
-!data/face-mask-data/.gitkeep
+data/face-mask-data/train/
+data/face-mask-data/val/
+runs/split/
 
-# Resultados de entrenamiento (modelos, gráficas)
-# runs/
-# **/weights/best.pt
-# **/weights/last.pt
+# Deny por defecto en pesos: Ultralytics los reescribe cada save_period, así que
+# versionarlos solo infla el repo. Las excepciones van ancladas a la raíz para
+# que no re-incluyan copias en subcarpetas.
+*.pt*
+*.onnx
+*.engine
+!/yolo11n.pt
+!/runs/**/weights/best.pt
+
+# Restos del clasificador ResNet18, que ya no está en el pipeline.
+*.pth
+face_mask/
+models/
+
+# Los JPG del trainer son mosaicos que re-embeben caras del dataset. Los PNG de
+# métricas sí se versionan, y results.csv con ellos.
+runs/**/*.jpg
+
+# args.yaml guarda la ruta absoluta del host, así que no es portable.
 **/args.yaml
 **/labels.cache
 
-# Archivos temporales generados
-# face_mask_dataset_abs.yaml
-# training/face_mask_dataset.yaml
+# Se regenera en runtime con una ruta absoluta.
+training/face_mask_dataset.yaml
 
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
 
-# IDEs
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+id_ecdsa*
+.netrc
+.pypirc
+.npmrc
+*.local
+*.log
+
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# Sistema
 Thumbs.db
 .DS_Store
 
-.cache
+# Streams de WSL al descargar ficheros en Windows.
+*.Identifier
+.cache/
