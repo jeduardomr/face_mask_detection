@@ -1,0 +1,92 @@
+name: Bug report
+description: Reportar un fallo reproducible en la detección, el entrenamiento o Docker.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Antes de abrir el issue, ejecuta `bash tests/run_all.sh`.
+        No adjuntes imágenes del dataset ni capturas con caras.
+
+  - type: textarea
+    id: que-paso
+    attributes:
+      label: Qué pasó
+      description: Describe el fallo y lo que esperabas que ocurriera.
+      placeholder: "Al ejecutar ... aparece ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: entorno
+    attributes:
+      label: Entorno
+      options:
+        - Local (venv)
+        - Docker Compose
+        - Devcontainer
+    validations:
+      required: true
+
+  - type: input
+    id: sistema
+    attributes:
+      label: Sistema operativo y versión de Python
+      placeholder: "Ubuntu 24.04, Python 3.10"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: hardware
+    attributes:
+      label: Hardware
+      options:
+        - CPU
+        - GPU NVIDIA con CUDA
+    validations:
+      required: true
+
+  - type: input
+    id: comando
+    attributes:
+      label: Comando ejecutado
+      placeholder: "python main.py"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Traceback o salida relevante
+      description: Pega el error completo. GitHub lo formatea como código.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Salida de bash tests/run_all.sh
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: privacidad
+    attributes:
+      label: Privacidad
+      options:
+        - label: No he adjuntado imágenes del dataset ni datos personales.
+          required: true

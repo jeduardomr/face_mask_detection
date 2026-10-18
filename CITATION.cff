@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Si usas este software, cítalo así."
+title: "Sistema de Detección de EPP en Tiempo Real"
+abstract: "Detección en tiempo real de mascarillas, guantes y cofias con YOLO11n, ByteTrack y OpenCV."
+authors:
+  - given-names: "Jose Eduardo"
+    alias: "jeduardomr"
+    website: "https://github.com/jeduardomr"
+repository-code: "https://github.com/jeduardomr/face_mask_detection"
+url: "https://github.com/jeduardomr/face_mask_detection"
+license: "AGPL-3.0-only"
+keywords:
+  - "detección de EPP"
+  - "YOLO11"
+  - "visión por computador"
+  - "tiempo real"
+  - "OpenCV"
+  - "PyTorch"
+type: software
