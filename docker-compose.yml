@@ -1,0 +1,19 @@
+services:
+  epp-detector:
+    build: .
+    restart: unless-stopped
+    devices:
+      - /dev/video0:/dev/video0
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      - DISPLAY=${DISPLAY}
+      - SDL_AUDIODRIVER=dummy
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - ./data/face-mask-data:/app/data/face-mask-data
+      - ./runs:/app/runs
+      - ./models:/app/models
+    stdin_open: true
+    tty: true
+    network_mode: host

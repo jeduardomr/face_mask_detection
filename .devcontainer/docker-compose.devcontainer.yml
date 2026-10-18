@@ -1,0 +1,14 @@
+services:
+  epp-detector:
+    command: ["sleep", "infinity"]
+
+    # `.` es relativo a la carpeta del primer compose (la raíz del repo), y los
+    # volúmenes de data/, runs/ y models/ anidan dentro.
+    volumes:
+      - .:/app
+
+    stdin_open: true
+    tty: true
+
+    environment:
+      - PYTHONUNBUFFERED=1
