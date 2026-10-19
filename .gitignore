@@ -12,7 +12,6 @@ runs/split/
 *.onnx
 *.engine
 !/yolo11n.pt
-!/runs/**/weights/best.pt
 
 # Restos del clasificador ResNet18, que ya no está en el pipeline.
 *.pth
